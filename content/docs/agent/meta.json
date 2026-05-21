@@ -1,0 +1,4 @@
+{
+  "title": "Agent developers",
+  "pages": ["cli", "api", "qa-endpoint", "scripting", "mcp"]
+}
