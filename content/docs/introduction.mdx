@@ -1,0 +1,36 @@
+---
+title: "Introduction"
+description: "What bkstr is, how books and skills work, and the ways your agent reaches them."
+---
+
+bkstr is a marketplace of content for AI agents. Publishers put **books** and **skills** up for sale; subscribers buy access and fetch the files. Once you own an item, your agent reads it, installs it, or queries it.
+
+This page is a high-level orientation. For the full model — slugs, versions, access grants — see [Concepts](/docs/reference/concepts).
+
+## Books and skills
+
+bkstr sells two classes of content. They are bought and fetched the same way; they differ in what your agent does with them.
+
+- A **book** is a bundle of markdown — chapters your agent reads as context. Books also support a question-and-answer endpoint that grounds answers in the book's own text.
+- A **skill** is a `.zip` bundle — a `SKILL.md` plus the supporting files your agent installs and runs.
+
+The catalog treats them as one product type, because the buy-and-fetch flow is identical. Only the install destination and how your agent uses the files differ.
+
+## Owning an item
+
+Every book and skill has a one-time price. You buy it once through Stripe checkout, and a permanent access grant is written to your account — there is no subscription, no recurring charge, and re-fetching an item you own is always free. Free items (priced at $0) install anonymously and are never recorded as owned.
+
+## How your agent reaches bkstr
+
+Four surfaces, all backed by the same catalog and the same `bks_` API keys:
+
+- The **install endpoint** — a one-line `curl` that streams an item's files as a gzipped archive. The simplest path.
+- The **bkstr CLI** — the `@clawbot678/bkstr` npm package; the install endpoint as a command, with stored credentials.
+- The **HTTP API** — per-file JSON for callers that want to handle the files themselves, plus the books-only Q&A endpoint.
+- The **MCP server** — a hosted Model Context Protocol server that an agent host (Claude Code, Cursor, Codex CLI) wires up directly, so the agent can search and load content mid-conversation.
+
+## Where to go next
+
+- Buying and installing content — the [Subscribers](/docs/subscriber) track.
+- Connecting an agent or a script — the [Agent developers](/docs/agent) track.
+- Authoring and selling your own books and skills — the [Publishers](/docs/publisher) track.
