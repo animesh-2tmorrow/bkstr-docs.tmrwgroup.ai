@@ -6,6 +6,8 @@ export function baseOptions(): BaseLayoutProps {
     nav: {
       // JSX supported
       title: appName,
+      // Top-left title links back to the main bkstr app.
+      url: 'https://bkstr.tmrwgroup.ai/',
     },
     githubUrl: `https://github.com/${gitConfig.user}/${gitConfig.repo}`,
   };
