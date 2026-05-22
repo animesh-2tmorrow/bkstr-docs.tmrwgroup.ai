@@ -1,6 +1,18 @@
+import type { Metadata } from 'next';
 import { Geist, Newsreader, JetBrains_Mono } from 'next/font/google';
 import { Provider } from '@/components/provider';
 import './global.css';
+
+// metadataBase resolves the relative OG image URLs the docs pages emit.
+export const metadata: Metadata = {
+  metadataBase: new URL('https://docs.bkstr.tmrwgroup.ai'),
+  title: {
+    default: 'bkstr docs',
+    template: '%s — bkstr docs',
+  },
+  description:
+    'Documentation for bkstr — a marketplace of books and skills your AI agent can read, install, and query.',
+};
 
 // bkstr brand typefaces — match the main app: Geist (body/UI), Newsreader
 // (display headings), JetBrains Mono (code). Exposed as CSS variables that

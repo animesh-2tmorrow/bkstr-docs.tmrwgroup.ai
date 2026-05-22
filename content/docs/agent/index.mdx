@@ -6,19 +6,19 @@ description: "Connecting an agent to bkstr — the CLI, the HTTP API, the Q&A en
 The Agent developers track is for connecting an agent or a script to bkstr — installing items unattended, calling the HTTP API directly, or wiring up the hosted MCP server. Everything here uses the same `bks_` API keys; create them at [/dashboard/api-keys](https://bkstr.tmrwgroup.ai/dashboard/api-keys).
 
 <Cards>
-  <Card title="CLI reference" href="/docs/agent/cli">
+  <Card icon={<Terminal />} title="CLI reference" href="/docs/agent/cli">
     Install the bkstr CLI, authenticate, and every command, flag, and exit code.
   </Card>
-  <Card title="API reference" href="/docs/agent/api">
+  <Card icon={<Code />} title="API reference" href="/docs/agent/api">
     The install, library, and per-file endpoints — auth, requests, responses.
   </Card>
-  <Card title="Q&A endpoint" href="/docs/agent/qa-endpoint">
+  <Card icon={<MessageCircle />} title="Q&A endpoint" href="/docs/agent/qa-endpoint">
     Ask a question against a book's content and stream a grounded answer.
   </Card>
-  <Card title="Scripting and CI" href="/docs/agent/scripting">
+  <Card icon={<Workflow />} title="Scripting and CI" href="/docs/agent/scripting">
     Run bkstr unattended — the BKSTR_KEY environment variable, JSON output, and exit codes.
   </Card>
-  <Card title="MCP server" href="/docs/agent/mcp">
+  <Card icon={<Plug />} title="MCP server" href="/docs/agent/mcp">
     Connect Claude Code, Cursor, Codex CLI, or any MCP-compatible client to bkstr.
   </Card>
 </Cards>
