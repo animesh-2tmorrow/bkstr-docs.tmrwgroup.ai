@@ -28,7 +28,7 @@ A price change takes effect immediately. It does not require re-publishing or re
 
 ## How Stripe stays in sync
 
-bkstr handles the payment processor for you. When you create a book, bkstr creates the matching Stripe product and price. When you change a price, bkstr creates a fresh Stripe price and points the book at it — Stripe prices are immutable, so a change is always a new price record, not an edit.
+bkstr handles the payment processor for you. For a book that passes the [submission scan](/docs/publisher/becoming-a-publisher), bkstr creates the matching Stripe product and price when the book is published; for a book that was flagged for review, that happens when an admin approves it. When you change a price, bkstr creates a fresh Stripe price and points the book at it — Stripe prices are immutable, so a change is always a new price record, not an edit.
 
 You do not manage anything in Stripe directly. Setting the dollar amount on the Pricing page is the whole job.
 

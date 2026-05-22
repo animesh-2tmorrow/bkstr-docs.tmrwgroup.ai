@@ -31,7 +31,7 @@ For a single-document book, choose the paste mode and paste markdown straight in
 {/* capture: p-03 */}
 ![New Book form, paste mode, filled from docs-capture sample content](/docs/screenshots/p-03-new-book-paste-filled.png)
 
-When you submit, bkstr creates the Stripe product for the book, then writes the book, its first version, its price, and your publisher grant in one transaction. The book is live on its storefront page immediately.
+When you submit, your book is run through the automated submission scan. A book that passes is written — its first version, its price, your publisher grant, the Stripe product — and is live on its storefront page immediately. A submission the scan flags or rejects does not list; see [Becoming a publisher](/docs/publisher/becoming-a-publisher) for the three outcomes.
 
 {/* capture: p-04 */}
 ![Paste-mode book published — live on its storefront page](/docs/screenshots/p-04-new-book-paste-success.png)
@@ -68,14 +68,14 @@ A few rules the zip path enforces:
 - **Re-uploading is idempotent.** An identical re-upload returns the existing version unchanged. A zip with edited content creates the next version (v2, v3, and so on) of the same book.
 - **Skill bundles are rejected.** A zip whose root holds a `SKILL.md` is refused by the book path — to publish a skill, see [Authoring skills](/docs/publisher/authoring-skills).
 
-The published book is live on its storefront page right away.
+A book that passes the submission scan is live on its storefront page right away.
 
 {/* capture: p-07 */}
 ![Zip-mode book published — live on its storefront page](/docs/screenshots/p-07-new-book-zip-success.png)
 
 ## After you publish
 
-A submitted book is live the moment the form succeeds — it appears in the catalog's Browse tab for every signed-in subscriber. There is no preview step.
+A book that passes the [submission scan](/docs/publisher/becoming-a-publisher) is live the moment the form succeeds — it appears in the catalog's Browse tab for every signed-in subscriber. The scan catches secrets and malformed submissions, not content quality; there is no preview step.
 
 Two things to know before you submit:
 

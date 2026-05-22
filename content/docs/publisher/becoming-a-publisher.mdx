@@ -1,0 +1,64 @@
+---
+title: "Becoming a publisher"
+description: "Opt in to publish on bkstr, and how the automated scan gates every submission."
+---
+
+Publishing on bkstr is self-service. Any signed-in account can opt in to become a publisher — there is no allowlist and nothing to request. Once you opt in, you can author and submit books and skills straight away.
+
+## Opting in
+
+If your account is a subscriber account, the dashboard sidebar carries a **Become a Publisher** entry, at [/dashboard/become-publisher](https://bkstr.tmrwgroup.ai/dashboard/become-publisher).
+
+Opening it shows the publisher terms and a single checkbox. Ticking it is your attestation that you hold the rights to the content you publish and that it carries no secrets or malicious code. On confirm, your account is granted the publisher role and you land in the New Book authoring form.
+
+Existing publishers are unaffected — the opt-in is purely additive. If you already publish, nothing changes.
+
+## Submitting a book or skill
+
+The authoring mechanics are unchanged — the New Book form, paste versus `.zip`, the `SKILL.md` bundle. Those are covered in [Authoring books](/docs/publisher/authoring-books) and [Authoring skills](/docs/publisher/authoring-skills).
+
+What is new is what happens when you submit: every submission runs through an automated scan before the item goes live. The scan runs inside the publishing request, so you get its outcome immediately — one of three.
+
+## The scan — three outcomes
+
+The scan inspects your submission the moment you submit it. There are three possible results.
+
+- **Pass.** The submission is clean. The book or skill lists on the storefront right away, exactly as publishing worked before. You get a *listed* email.
+- **Rejected.** The submission is blocked and nothing is created — no listing, no draft, no record. This happens when the content contains a **secret**: a live API key, a private key, an access credential. Publishing a credential into content that bkstr hosts and serves is a live exposure, so the scan refuses the submission outright. The response tells you what kind of secret was found and where — remove it from your content and submit again.
+- **Flagged.** The submission is accepted but **held** — it is not listed, and it is sent to a human review queue. This happens for content that needs judgement: an empty or malformed submission, or, rarely, a scan-infrastructure error. You do not need to do anything; a bkstr admin reviews it and you get an email with the outcome.
+
+| Outcome | What it means | What you do |
+| --- | --- | --- |
+| Pass | Lists on the storefront immediately | Nothing — it is live |
+| Rejected | Blocked; nothing created; content held a secret | Remove the secret, resubmit |
+| Flagged | Held for human review; not listed | Nothing — wait for the review email |
+
+The discipline behind a rejection is the same one you would apply to a public code repository: never put a credential in content you publish. bkstr does not publish the details of what the scan matches — the useful guidance is simply that submissions are scanned for secrets, and a submission that contains one will be rejected.
+
+## The review queue — for flagged submissions
+
+A flagged submission waits in a queue that bkstr admins work through. An admin opens the submission, reviews the scan's findings, and decides:
+
+- **Approved** — the item goes live on the storefront. You get an *approved* email.
+- **Rejected** — the item stays unlisted. You get a *rejected* email carrying the reviewer's note, which explains why.
+
+A submission rejected at review can be corrected and submitted again as a new submission. A bkstr admin reviews flagged submissions; there is no fixed turnaround time published yet.
+
+## After your item is live
+
+A published item's content is immutable — you cannot edit a book or skill in place. To change it, upload a new version; see [Authoring books](/docs/publisher/authoring-books) and [Authoring skills](/docs/publisher/authoring-skills). **A re-upload is scanned again** through the same gate, with the same three outcomes — a re-upload that introduces a secret is rejected exactly as a first submission would be.
+
+Archiving and unarchiving behave accordingly. Unarchiving an item **re-runs the scan**, so an item whose content would no longer pass cannot be quietly returned to the storefront; and an item that is flagged or rejected cannot be archived at all. See [Catalog management](/docs/publisher/catalog-management).
+
+Pricing is unchanged — you set and change a price from the Pricing page; see [Pricing](/docs/publisher/pricing).
+
+## Emails you'll receive
+
+bkstr emails you as a submission moves through its lifecycle:
+
+- **Listed** — your submission passed the scan and is live on the storefront.
+- **Flagged** — your submission was received and is held for review; no action needed.
+- **Approved** — an admin reviewed a flagged submission and approved it; it is now live.
+- **Rejected** — an admin reviewed a flagged submission and declined it; the email carries the reason.
+
+A secret rejection is not emailed — you see it immediately in the response when you submit.
